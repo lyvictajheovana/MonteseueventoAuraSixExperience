@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aurasix Experience - Pacotes Futuristas</title>
-
 <style>
   body {
     font-family: 'Arial', sans-serif;
@@ -46,12 +45,12 @@
     cursor: pointer;
     transition: 0.2s;
   }
+  .items input[type="checkbox"] {
+    transform: scale(1.3);
+    margin-right: 15px;
+  }
   .items label:hover {
     background: rgba(0,255,255,0.1);
-  }
-  input {
-    transform: scale(1.2);
-    margin-right: 10px;
   }
   #cart {
     background: rgba(0,0,0,0.8);
@@ -89,56 +88,81 @@
     font-size: 1em;
     font-weight: bold;
     box-shadow: 0 0 10px #0ff;
+    transition: 0.2s;
   }
   button:hover {
     background: #0cc;
   }
-  .visit-box {
-    margin-top: 20px;
-    padding: 15px;
-    border: 1px solid #0ff;
-    border-radius: 10px;
-  }
 </style>
 </head>
-
 <body>
 
 <header>Aurasix Experience - Pacotes Futuristas</header>
 
-<!-- TODOS SEUS PACOTES ORIGINAIS CONTINUAM AQUI -->
-<!-- (mantive todos exatamente como você enviou, sem alterar valores) -->
+<!-- Pacotes -->
 
-<!-- GASTRONOMIA PREMIUM -->
 <div class="package">
-  <h2>🍽️ Patrocinadores Gastronômicos Premium</h2>
+  <h2>🎂 Festa de Aniversário</h2>
   <div class="items">
-
-    <h3>🍝 Comidas</h3>
-    <label><input type="radio" name="comida" value="SaborMax" data-price="1789.90"> SaborMax <span>R$1,789.90</span></label>
-    <label><input type="radio" name="comida" value="ChefPrime Eventos" data-price="1649.50"> ChefPrime Eventos <span>R$1,649.50</span></label>
-    <label><input type="radio" name="comida" value="GranDelícia Buffet" data-price="1932.75"> GranDelícia Buffet <span>R$1,932.75</span></label>
-
-    <h3>🍰 Doces</h3>
-    <label><input type="radio" name="doce" value="DoceAura" data-price="1559.40"> DoceAura <span>R$1,559.40</span></label>
-    <label><input type="radio" name="doce" value="SweetLux" data-price="1874.20"> SweetLux <span>R$1,874.20</span></label>
-    <label><input type="radio" name="doce" value="CandyArt Premium" data-price="1698.85"> CandyArt Premium <span>R$1,698.85</span></label>
-
-    <h3>🥤 Bebidas</h3>
-    <label><input type="radio" name="bebida" value="VivaMix" data-price="1720.60"> VivaMix <span>R$1,720.60</span></label>
-    <label><input type="radio" name="bebida" value="SparkDrinks" data-price="1895.30"> SparkDrinks <span>R$1,895.30</span></label>
-    <label><input type="radio" name="bebida" value="FreshWave Bar" data-price="1640.75"> FreshWave Bar <span>R$1,640.75</span></label>
-
-  </div>
-
-  <div class="visit-box">
-    <h3>📅 Agende uma visita para degustação</h3>
-    <input type="date" id="visitDate">
-    <button onclick="agendarVisita()">Confirmar Visita</button>
+    <label><input type="checkbox" data-price="152.75" value="Bolo de aniversário"> Bolo de aniversário <span>R$152.75</span></label>
+    <label><input type="checkbox" data-price="123.50" value="Bife"> Bife ou Carne <span>R$123.50</span></label>
+    <label><input type="checkbox" data-price="85.30" value="Bebidas"> Bebidas <span>R$85.30</span></label>
+    <label><input type="checkbox" data-price="182.99" value="Decoração básica"> Decoração básica <span>R$182.99</span></label>
+    <label><input type="checkbox" data-price="61.75" value="Lembrancinhas"> Lembrancinhas <span>R$61.75</span></label>
   </div>
 </div>
 
-<!-- CARRINHO -->
+<div class="package">
+  <h2>🥳 Confraternização</h2>
+  <div class="items">
+    <label><input type="checkbox" data-price="102.40" value="Pizzas variadas"> Pizzas variadas <span>R$102.40</span></label>
+    <label><input type="checkbox" data-price="148.60" value="Drinks"> Drinks <span>R$148.60</span></label>
+    <label><input type="checkbox" data-price="99.90" value="Música ambiente"> Música ambiente <span>R$99.90</span></label>
+    <label><input type="checkbox" data-price="201.50" value="Mesas e cadeiras"> Mesas e cadeiras <span>R$201.50</span></label>
+  </div>
+</div>
+
+<div class="package">
+  <h2>🎉 Comemoração Especial</h2>
+  <div class="items">
+    <label><input type="checkbox" data-price="92.25" value="Doces e sobremesas"> Doces e sobremesas <span>R$92.25</span></label>
+    <label><input type="checkbox" data-price="121.75" value="Saladas e pratos leves"> Saladas e pratos leves <span>R$121.75</span></label>
+    <label><input type="checkbox" data-price="79.50" value="Flores na decoração"> Flores na decoração <span>R$79.50</span></label>
+    <label><input type="checkbox" data-price="399.99" value="Fotógrafo"> Fotógrafo <span>R$399.99</span></label>
+  </div>
+</div>
+
+<div class="package">
+  <h2>👫 Reunião entre Amigos</h2>
+  <div class="items">
+    <label><input type="checkbox" data-price="91.20" value="Lanches"> Lanches <span>R$91.20</span></label>
+    <label><input type="checkbox" data-price="98.50" value="Bebidas"> Bebidas <span>R$98.50</span></label>
+    <label><input type="checkbox" data-price="82.75" value="Jogos e entretenimento"> Jogos e entretenimento <span>R$82.75</span></label>
+    <label><input type="checkbox" data-price="49.90" value="Playlist personalizada"> Playlist personalizada <span>R$49.90</span></label>
+  </div>
+</div>
+
+<div class="package">
+  <h2>💃 Baladinha</h2>
+  <div class="items">
+    <label><input type="checkbox" data-price="179.99" value="Drinks variados"> Drinks variados <span>R$179.99</span></label>
+    <label><input type="checkbox" data-price="249.50" value="Luzes e decoração moderna"> Luzes e decoração moderna <span>R$249.50</span></label>
+    <label><input type="checkbox" data-price="499.75" value="DJ ou playlist animada"> DJ ou playlist animada <span>R$499.75</span></label>
+    <label><input type="checkbox" data-price="201.20" value="Espaço para dança"> Espaço para dança <span>R$201.20</span></label>
+  </div>
+</div>
+
+<div class="package">
+  <h2>🎊 Festas em Datas Especiais</h2>
+  <div class="items">
+    <label><input type="checkbox" data-price="151.50" value="Tema da data"> Tema da data (Natal, Halloween...) <span>R$151.50</span></label>
+    <label><input type="checkbox" data-price="198.30" value="Doces e bolo temático"> Doces e bolo temático <span>R$198.30</span></label>
+    <label><input type="checkbox" data-price="298.40" value="Decoração temática"> Decoração temática <span>R$298.40</span></label>
+    <label><input type="checkbox" data-price="99.95" value="Brindes ou lembrancinhas"> Brindes ou lembrancinhas <span>R$99.95</span></label>
+  </div>
+</div>
+
+<!-- Carrinho -->
 <div id="cart">
   <h2>Carrinho do Cliente</h2>
   <ul id="selectedItems">
@@ -149,51 +173,37 @@
 </div>
 
 <script>
-  const allInputs = document.querySelectorAll('input[type="checkbox"], input[type="radio"]');
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
   const selectedItems = document.getElementById('selectedItems');
   const totalPriceEl = document.getElementById('totalPrice');
 
   function updateCart() {
-    const selected = Array.from(allInputs)
-      .filter(input => input.checked)
-      .map(input => ({name: input.value, price: parseFloat(input.dataset.price)}));
+    const selected = Array.from(checkboxes)
+      .filter(cb => cb.checked)
+      .map(cb => ({name: cb.value, price: parseFloat(cb.dataset.price)}));
 
     if(selected.length === 0){
       selectedItems.innerHTML = '<li>Nenhum item selecionado ainda.</li>';
       totalPriceEl.textContent = '0.00';
     } else {
-      selectedItems.innerHTML = selected.map(item =>
-        `<li>${item.name} <span>R$${item.price.toFixed(2)}</span></li>`
-      ).join('');
-
+      selectedItems.innerHTML = selected.map(item => `<li>${item.name} <span>R$${item.price.toFixed(2)}</span></li>`).join('');
       const total = selected.reduce((sum, item) => sum + item.price, 0);
       totalPriceEl.textContent = total.toFixed(2);
     }
   }
 
-  allInputs.forEach(input => input.addEventListener('change', updateCart));
+  checkboxes.forEach(cb => cb.addEventListener('change', updateCart));
 
   function finalizarPedido() {
-    const selected = Array.from(allInputs).filter(input => input.checked);
+    const selected = Array.from(checkboxes).filter(cb => cb.checked);
     if(selected.length === 0){
       alert("Selecione ao menos um item antes de finalizar!");
       return;
     }
     let mensagem = "Pedido finalizado com sucesso!\n\nItens selecionados:\n";
-    selected.forEach(input =>
-      mensagem += `- ${input.value} R$${parseFloat(input.dataset.price).toFixed(2)}\n`
-    );
-    mensagem += `\nTotal: R$${selected.reduce((sum, input) => sum + parseFloat(input.dataset.price),0).toFixed(2)}`;
-    alert(mensagem + "\n\nEste é um site de demonstração.");
-  }
-
-  function agendarVisita(){
-    const data = document.getElementById("visitDate").value;
-    if(!data){
-      alert("Escolha uma data para agendar a visita!");
-    } else {
-      alert("Visita agendada para " + data + " ✨ Nossa equipe entrará em contato!");
-    }
+    selected.forEach(cb => mensagem += `- ${cb.value} R$${parseFloat(cb.dataset.price).toFixed(2)}\n`);
+    mensagem += `\nTotal: R$${selected.reduce((sum, cb) => sum + parseFloat(cb.dataset.price),0).toFixed(2)}`;
+    alert(mensagem + "\n\nEste é um site de demonstração, nenhuma compra real será processada.");
   }
 </script>
 
