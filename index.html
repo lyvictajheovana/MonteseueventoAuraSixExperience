@@ -160,18 +160,40 @@
     <label><input type="checkbox" data-price="298.40" value="Decoração temática"> Decoração temática <span>R$298.40</span></label>
     <label><input type="checkbox" data-price="99.95" value="Brindes ou lembrancinhas"> Brindes ou lembrancinhas <span>R$99.95</span></label>
   </div>
-</div>
+<!-- PATROCINADORES -->
 <div class="package">
-  <h2>🍽️ Patrocinadores Gastronômicos</h2>
-  <div class="items">
-    <label><input type="radio" name="patrocinador" data-price="1598.75" value="SaborMax"> SaborMax <span>R$1598.75</span></label>
-    <label><input type="radio" name="patrocinador" data-price="1789.40" value="VivaMix"> VivaMix <span>R$1789.40</span></label>
-    <label><input type="radio" name="patrocinador" data-price="1925.90" value="DoceMundo"> DoceMundo <span>R$1925.90</span></label>
-  </div>
+<h2>🍽️ Patrocinadores Gastronômicos</h2>
+<div class="items">
 
-  <h3 style="margin-top:20px;color:#0ff;">📅 Agendar visita para degustação</h3>
-  <input type="date" id="dataVisita"
-  style="width:100%;padding:10px;border-radius:8px;border:none;margin-top:10px;">
+<label>
+<input type="radio" name="patrocinador" value="SaborTop" data-price="1497.90">
+SaborTop <span>R$1.497,90</span>
+</label>
+
+<label>
+<input type="radio" name="patrocinador" value="MixFesta" data-price="1689.75">
+MixFesta <span>R$1.689,75</span>
+</label>
+
+<label>
+<input type="radio" name="patrocinador" value="DoceArte" data-price="1799.40">
+DoceArte <span>R$1.799,40</span>
+</label>
+
+<label>
+<input type="radio" name="patrocinador" value="FoodPlay" data-price="1935.55">
+FoodPlay <span>R$1.935,55</span>
+</label>
+
+<label>
+<input type="radio" name="patrocinador" value="NaturalMix" data-price="1588.35">
+NaturalMix <span>R$1.588,35</span>
+</label>
+
+</div>
+
+<h3>📅 Agendar visita para degustação</h3>
+<input type="date" id="dataVisita" style="width:100%;padding:10px;border-radius:8px;">
 </div>
 <!-- Carrinho -->
 <div id="cart">
@@ -190,19 +212,32 @@ const radios = document.querySelectorAll('input[name="patrocinador"]');
   const totalPriceEl = document.getElementById('totalPrice');
 
   function updateCart() {
-    const selected = Array.from(checkboxes)
-      .filter(cb => cb.checked)
-      .map(cb => ({name: cb.value, price: parseFloat(cb.dataset.price)}));
+    
+  selectedItems.innerHTML = "";
+  let total = 0;
 
-    if(selected.length === 0){
-      selectedItems.innerHTML = '<li>Nenhum item selecionado ainda.</li>';
-      totalPriceEl.textContent = '0.00';
-    } else {
-      selectedItems.innerHTML = selected.map(item => `<li>${item.name} <span>R$${item.price.toFixed(2)}</span></li>`).join('');
-      const total = selected.reduce((sum, item) => sum + item.price, 0);
-      totalPriceEl.textContent = total.toFixed(2);
+  // Itens normais (checkbox)
+  checkboxes.forEach(item => {
+    if(item.checked){
+      let li = document.createElement("li");
+      li.textContent = item.value + " - R$" + parseFloat(item.dataset.price).toFixed(2);
+      selectedItems.appendChild(li);
+      total += parseFloat(item.dataset.price);
     }
+  });
+
+  // Patrocinador (radio - apenas 1)
+  const patrocinadorSelecionado = document.querySelector('input[name="patrocinador"]:checked');
+
+  if(patrocinadorSelecionado){
+    let li = document.createElement("li");
+    li.textContent = patrocinadorSelecionado.value + " - R$" + parseFloat(patrocinadorSelecionado.dataset.price).toFixed(2);
+    selectedItems.appendChild(li);
+    total += parseFloat(patrocinadorSelecionado.dataset.price);
   }
+
+  totalPriceEl.textContent = total.toFixed(2);
+}
 
   checkboxes.forEach(cb => cb.addEventListener('change', updateCart));
 radios.forEach(radio => radio.addEventListener('change', updateCart));
