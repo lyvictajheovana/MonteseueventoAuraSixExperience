@@ -204,21 +204,19 @@ NaturalMix <span>R$1.588,35</span>
   <strong>Total: R$<span id="totalPrice">0.00</span></strong>
   <button onclick="finalizarPedido()">Finalizar Pedido</button>
 </div>
-
 <script>
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const radios = document.querySelectorAll('input[name="patrocinador"]');
-  const selectedItems = document.getElementById('selectedItems');
-  const totalPriceEl = document.getElementById('totalPrice');
+const selectedItems = document.getElementById('selectedItems');
+const totalPriceEl = document.getElementById('totalPrice');
 
-  function updateCart() {
-    
+function updateCart() {
   selectedItems.innerHTML = "";
   let total = 0;
 
-  // Itens normais (checkbox)
+  // Itens checkbox
   checkboxes.forEach(item => {
-    if(item.checked){
+    if (item.checked) {
       let li = document.createElement("li");
       li.textContent = item.value + " - R$" + parseFloat(item.dataset.price).toFixed(2);
       selectedItems.appendChild(li);
@@ -226,10 +224,10 @@ const radios = document.querySelectorAll('input[name="patrocinador"]');
     }
   });
 
-  // Patrocinador (radio - apenas 1)
+  // Patrocinador (radio)
   const patrocinadorSelecionado = document.querySelector('input[name="patrocinador"]:checked');
 
-  if(patrocinadorSelecionado){
+  if (patrocinadorSelecionado) {
     let li = document.createElement("li");
     li.textContent = patrocinadorSelecionado.value + " - R$" + parseFloat(patrocinadorSelecionado.dataset.price).toFixed(2);
     selectedItems.appendChild(li);
@@ -239,23 +237,20 @@ const radios = document.querySelectorAll('input[name="patrocinador"]');
   totalPriceEl.textContent = total.toFixed(2);
 }
 
-  checkboxes.forEach(cb => cb.addEventListener('change', updateCart));
+checkboxes.forEach(cb => cb.addEventListener('change', updateCart));
 radios.forEach(radio => radio.addEventListener('change', updateCart));
-const totalPriceEl = document.getElementById('totalPrice');
-  
-function finalizarPedido() {
-alert("Botão funcionando!");
-}
-  const totalAtual = totalPriceEl.textContent;
 
-  if (!totalAtual || parseFloat(totalAtual) === 0) {
+function finalizarPedido() {
+  const totalAtual = parseFloat(totalPriceEl.textContent);
+
+  if (!totalAtual || totalAtual === 0) {
     alert("Selecione pelo menos um item antes de finalizar!");
     return;
   }
 
   alert(
     "Pedido finalizado com sucesso!\n\n" +
-    "Total Geral: R$" + parseFloat(totalAtual).toFixed(2) +
+    "Total Geral: R$" + totalAtual.toFixed(2) +
     "\n\nEste é um site demonstrativo da Aurasix Experience."
   );
 }
