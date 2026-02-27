@@ -241,22 +241,24 @@ const radios = document.querySelectorAll('input[name="patrocinador"]');
 
   checkboxes.forEach(cb => cb.addEventListener('change', updateCart));
 radios.forEach(radio => radio.addEventListener('change', updateCart));
-
-  function finalizarPedido() {
-
+const totalPriceEl = document.getElementById('totalPrice');
+  
+function finalizarPedido() {
+alert("Botão funcionando!");
+}
   const totalAtual = totalPriceEl.textContent;
 
-  if (parseFloat(totalAtual) === 0) {
+  if (!totalAtual || parseFloat(totalAtual) === 0) {
     alert("Selecione pelo menos um item antes de finalizar!");
     return;
-  
   }
-   
-    let mensagem = "Pedido finalizado com sucesso!\n\nItens selecionados:\n";
-    selected.forEach(cb => mensagem += `- ${cb.value} R$${parseFloat(cb.dataset.price).toFixed(2)}\n`);
-    mensagem += `\nTotal: R$${selected.reduce((sum, cb) => sum + parseFloat(cb.dataset.price),0).toFixed(2)}`;
-    alert(mensagem + "\n\nEste é um site de demonstração, nenhuma compra real será processada.");
-  }
+
+  alert(
+    "Pedido finalizado com sucesso!\n\n" +
+    "Total Geral: R$" + parseFloat(totalAtual).toFixed(2) +
+    "\n\nEste é um site demonstrativo da Aurasix Experience."
+  );
+}
 </script>
 
 </body>
